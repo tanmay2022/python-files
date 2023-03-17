@@ -7,9 +7,11 @@ Created on Tue May 19 21:48:47 2020
 
 import numpy as np
 import matplotlib.pyplot as plt
-plt.figure(figsize=(6,4))
-#plt.axis([0, 2.8, 0, 8e-7])
-plt.axis([0, 0.03, 0, 1.4e-7])
+plt.figure(figsize=(5,5))
+# plt.axis([0, 1.5, 0, 8e-5])
+# plt.axis([0, 1.5, 2e-7, 10e-7])
+# plt.axis([0, 0.015, 0.0002, 0.0016])
+plt.axis([0, 0.015, 0, 1.6e-7])
 
 
 # plt.rcParams['text.latex.preamble']=[r"\usepackage{lmodern}"]
@@ -57,8 +59,8 @@ for kk in range(3,len(file_name)):
     plt.plot(t, v, fmt[kk], markerfacecolor='none', label = legn[kk], linewidth = 1.5, markersize = 4)
 
 plt.xlabel('Time (s)')
-#plt.ylabel('Dendrite tip velocity (m/s)')
+# plt.ylabel('Dendrite tip velocity (m/s)')
 plt.ylabel('Dendrite tip radius (m)')
-plt.legend()
+# plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.savefig('dT'+str(dT)+'_R.pdf', format='pdf', dpi=1000, bbox_inches = "tight")
 plt.show()

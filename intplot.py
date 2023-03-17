@@ -8,8 +8,8 @@ Created on Tue May 19 21:48:47 2020
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-plt.figure(figsize=(6.5,5))
-plt.axis([0, 1.3e-5, 0, 1e-5])
+plt.figure(figsize=(5,5))
+plt.axis([0, 1e-5, 0, 1e-5])
 # plt.figure(figsize=(5,5))
 # plt.axis([0, 5e-5, 0, 5e-5])
 
@@ -24,6 +24,7 @@ plt.axis([0, 1.3e-5, 0, 1e-5])
 
 dT = 13
 dx = 1e-8
+# dT = 4
 # dx = 5e-8
 
 file_name = ["GP_MPI_f2_dt"+str(dT)+"_70.csv",
@@ -60,9 +61,8 @@ for kk in range(3,len(file_name)):
     Y = np.array(data.loc[:,'Points:1']).squeeze()
     plt.plot(X[0:-1:9], Y[0:-1:9], fmt[kk], markerfacecolor='none', label = legn[kk], linewidth = 1.5, markersize = 4)
 
-#plt.xlabel('X')
-#plt.ylabel('Dendrite tip velocity (m/s)')
-#plt.ylabel('Y')
-plt.legend()
+plt.xlabel('X (m)')
+plt.ylabel('Y (m)')
+# plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.savefig('dt'+str(dT)+'_Contour.pdf', format='pdf', dpi=1000, bbox_inches = "tight")
 plt.show()
