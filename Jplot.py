@@ -10,13 +10,14 @@ import matplotlib.pyplot as plt
 plt.figure(figsize=(5,4))
 plt.axis([0, 2800.0, 0, 9.0])
 
-plt.rcParams['text.latex.preamble']=[r"\usepackage{lmodern}"]
-params = {'text.usetex' : True,
-          'font.size' : 14,
-          'font.family' : 'lmodern',
-          'text.latex.unicode' : True,
-          }
-plt.rcParams.update(params)
+# plt.rcParams['text.latex.preamble']=[r"\usepackage{lmodern}"]
+# params = {'text.usetex' : True,
+#           'font.size' : 14,
+#           'font.family' : 'lmodern',
+#           'text.latex.unicode' : True,
+#           }
+# plt.rcParams.update(params)
+
 
 nu = 0.4
 v = 0.45
@@ -30,6 +31,6 @@ Jint = np.array([0, 5.4e-2, 0.18, 0.45, 0.78, 1.15, 1.72, 2.25, 2.87, 3.67,
 plt.plot(t, J, '-b', label = 'Elastic', linewidth = 1.5, markersize = 4)
 plt.plot(t, Jint, 'or', label = 'Contour', linewidth = 1.5, markersize = 4)
 plt.xlabel('time')
-plt.ylabel('$J/(c_ob_o)$')
+plt.ylabel('J/(cobo)')
 plt.legend()
 plt.show()
