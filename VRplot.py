@@ -5,7 +5,6 @@ Created on Tue May 19 21:48:47 2020
 @author: Tanmay
 """
 
-import os.path
 import numpy as np
 import matplotlib.pyplot as plt
 plt.figure(figsize=(6,4))
@@ -43,8 +42,7 @@ fmt = ["sb", "sr", "sk", "*k", "xk", "ob", "or", "ok", "^b", "^r", "^k"]
 
 
 for kk in range(0,3):
-    path = os.path.join("/media/tanmay/3e0c1b97-4353-4fae-88a4-e97b9d433879/tanmay/Downloads/2023_microsim_tdb_paper/VR_plot_datfiles/", file_name[kk])
-    f1 = np.genfromtxt(path, delimiter = None)#, unpack = True)
+    f1 = np.genfromtxt(file_name[kk], delimiter = None)#, unpack = True)
 
     t = f1[:,0]
     v = f1[:,2]
@@ -52,8 +50,7 @@ for kk in range(0,3):
 
 
 for kk in range(3,len(file_name)):
-    path = os.path.join("/media/tanmay/3e0c1b97-4353-4fae-88a4-e97b9d433879/tanmay/Downloads/2023_microsim_tdb_paper/VR_plot_datfiles/", file_name[kk])
-    f1 = np.genfromtxt(path, delimiter = None)#, unpack = True)
+    f1 = np.genfromtxt(file_name[kk], delimiter = None)#, unpack = True)
     
     t = f1[:,0]
     v = f1[:,1]
