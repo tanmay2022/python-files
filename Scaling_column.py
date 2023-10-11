@@ -14,13 +14,15 @@ import matplotlib.pyplot as plt
 #plt.axis([0, 5e-5, 0, 5e-5])
 
 
-# plt.rcParams['text.latex.preamble']=[r"\usepackage{lmodern}"]
-# params = {'text.usetex' : True,
-#           'font.size' : 14,
-#           'font.family' : 'lmodern',
-#           'text.latex.unicode' : True,
-#           }
-# plt.rcParams.update(params)
+#plt.rcParams['text.latex.preamble']=[r"\usepackage{lmodern}"]
+#params = {'text.usetex' : True,
+#          'font.size' : 20,
+#          'font.family' : 'lmodern',
+#          'text.latex.unicode' : True,
+#         }
+#plt.rcParams.update(params)
+
+plt.rcParams.update({'font.size': 14})
 
 cuda_scaling_data_2D = pd.read_csv("MicroSim_KKS_FD_CUDA_MPI_Scaling.csv", index_col=0)
 cuda_scaling_data_3D = pd.read_csv("MicroSim_KKS_FD_CUDA_MPI_Scaling_3D.csv", index_col=0)
