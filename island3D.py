@@ -8,7 +8,7 @@ from collections import Counter
 file_name = sys.argv[1]
 
 # Layer from bottom at % of total thickness
-z_section = float(sys.argv[2])
+#z_section = float(sys.argv[2])
 
 f = h5py.File(file_name, 'r')
 
@@ -23,19 +23,20 @@ print('Dimension: '+str(cube_dimension[0])+', '+str(cube_dimension[1])+', '+str(
 
 #print(dset.dtype)
 
-z_section = int(z_section*cube_dimension[0]/100)
-print('Layer # from bottom: '+str(z_section))
+#z_section = int(z_section*cube_dimension[0]/100)
+#print('Layer # from bottom: '+str(z_section))
 
-# Euler angle components in 2D matrix form at the layer from bottom
-#temp0 = dset[z_section,0:cube_dimension[1],0:cube_dimension[2],0]
-#temp1 = dset[z_section,0:cube_dimension[1],0:cube_dimension[2],1]
-temp2 = dset[z_section,0:cube_dimension[1],0:cube_dimension[2],2]
+# Euler angle components in 3D matrix form at the layer from bottom
+#temp0 = dset[0:cube_dimension[0],0:cube_dimension[1],0:cube_dimension[2],0]
+#temp1 = dset[0:cube_dimension[0],0:cube_dimension[1],0:cube_dimension[2],1]
+temp2 = dset[0:cube_dimension[0],0:cube_dimension[1],0:cube_dimension[2],2]
 
 # Euler angle components in 2D matrix form at the layer from top
 #Euler_ang_mat0 = temp0[cube_dimension[1]:0:-1,0:cube_dimension[2]]
 #Euler_ang_mat1 = temp1[cube_dimension[1]:0:-1,0:cube_dimension[2]]
 #Euler_ang_mat2 = temp2[cube_dimension[1]:0:-1,0:cube_dimension[2]]
-states_mat = temp2[cube_dimension[1]:0:-1,0:cube_dimension[2]]
+#states_mat = temp2[cube_dimension[1]:0:-1,0:cube_dimension[2]]
+states_mat = temp2.reshape(cube_dimension[0]*cube_dimension[1]*cube_dimension[2],1)
 
 #N = cube_dimension[1]
 #col = int(np.max(states_mat))
@@ -61,7 +62,7 @@ res = dict(sum(map(Counter, states_mat), Counter()))
 # printing result 
 #print ("The frequencies dictionary is : " + str(res))
 
-plt.matshow(states_mat, cmap='turbo')
+plt.matshow(temp2[cube_dimension[0]-1,cube_dimension[1]:0:-1,0:cube_dimension[2]], cmap='turbo')
 plt.title('Euler_Angle(2)')
 plt.colorbar()
 plt.show()
