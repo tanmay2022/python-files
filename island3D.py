@@ -36,7 +36,7 @@ temp2 = dset[0:cube_dimension[0],0:cube_dimension[1],0:cube_dimension[2],2]
 #Euler_ang_mat1 = temp1[cube_dimension[1]:0:-1,0:cube_dimension[2]]
 #Euler_ang_mat2 = temp2[cube_dimension[1]:0:-1,0:cube_dimension[2]]
 #states_mat = temp2[cube_dimension[1]:0:-1,0:cube_dimension[2]]
-states_mat = temp2.reshape(cube_dimension[0]*cube_dimension[1]*cube_dimension[2],1)
+states_mat = temp2.reshape(cube_dimension[0]*cube_dimension[1],cube_dimension[2])
 
 #N = cube_dimension[1]
 #col = int(np.max(states_mat))
